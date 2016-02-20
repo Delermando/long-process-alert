@@ -2,5 +2,6 @@
 set -e
 
 cd /usr/src/app
-npm install 
-npm start
+npm install
+node server.js
+# tail -f /dev/null
