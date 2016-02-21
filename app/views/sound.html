@@ -6,15 +6,46 @@
         <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
         <script>
             var socket = io();
-            socket.on('chat message', function(msg){
-                $("#audio").trigger('play');
+
+            socket.on('notification', function(play){
+                console.log(play);
+                if( play === true ){
+                    $("#audio").trigger('play');
+                }else{
+                    $("#audio").trigger('pause');
+                }
             });
         </script>
+        <style type="text/css">
+            body {
+                background-image: url("chrome://global/skin/media/imagedoc-darknoise.png");
+                background-color: rgb(33,33,33);
+            }
+            body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            audio {
+                box-shadow: 0 0 15px #000;
+            }
+            audio {
+                height: 28px;
+                width: 66%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                max-width: 100%;
+                max-height: 100%;
+                -moz-user-select: none;
+            }
+        </style>
     </head>
     <body>  
-        <audio controls id="audio">
-            <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4'>
-            <source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis'>
-        </audio>
+        <audio controls=""  id="audio" name="media"><source src="http://vignette1.wikia.nocookie.net/starwars/images/6/61/Imperial_March.ogg/revision/latest?cb=20131029154043" type="application/ogg"></video>
     </body>
 </html>
